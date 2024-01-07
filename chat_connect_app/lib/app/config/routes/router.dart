@@ -1,4 +1,6 @@
 import 'package:chat_connect_app/app/config/routes/my_named_routes.dart';
+import 'package:chat_connect_app/app/modules/auth/pages/login_page.dart';
+import 'package:chat_connect_app/app/modules/auth/pages/spalsh_scree.dart';
 import 'package:chat_connect_app/homepage.dart';
 import 'package:chat_connect_app/main.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +25,7 @@ abstract class AppRouter {
         path: MyNamedRoutes.root,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child:  MyHomePage(),
+          child:  SplashScreen(),
         ),
       ),
       GoRoute(
@@ -32,7 +34,7 @@ abstract class AppRouter {
         name: MyNamedRoutes.login,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child:  MyHomePage(),
+          child:  LoginScreen(),
         ),
       ),
     ],

@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
 
   firebase_core: ^2.23.0 # enabling connecting to multiple Firebase apps
   firebase_auth: ^4.14.1 # enabling authentication using passwords, phone numbers and identity providers like Google, Facebook and Twitter
@@ -42,7 +45,10 @@ dependencies:
   go_router: ^12.1.1 # google screen routes managment
   google_fonts: ^6.1.0 # access fonts from fonts.google.com
   image_picker: ^1.0.4 # access gallery and take images from camera
-  intl: ^0.18.1 
+  intl: ^0.18.1  # transalation
+
+
+  
 
 dev_dependencies:
   flutter_test:
@@ -65,11 +71,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+     - lib/assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
