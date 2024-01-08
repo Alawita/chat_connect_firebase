@@ -7,9 +7,8 @@ class MyHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-
-
-      appBar: MyAppbar(appBarTitle: Text("chatbar")),
+        
+      appBar: MyAppbar(appBarTitle: Text("chatbar")) ,
     );
   }
 }

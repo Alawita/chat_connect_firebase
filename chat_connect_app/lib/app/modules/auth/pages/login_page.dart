@@ -40,7 +40,11 @@ onPressed: (){
   authProvider.login(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
   context.pushNamed(MyNamedRoutes.home);
 },
-				child: Text(context.translate.register)						
+				child: Text(context.translate.login)						
+),Row(mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Text("you dont have an account?"), TextButton(onPressed: (){context.goNamed(MyNamedRoutes.register);}, child: Text(context.translate.register,style: TextStyle(color: Colors.lightBlue),))
+  ],
 ),
  const SizedBox(
             height: 12,
