@@ -2,7 +2,13 @@
 
     "login" : "تسجيل الدخول",
     "register" : "تسجيل",
-    "talal": "طلال"
+    "talal": "طلال",
+    "email": "البيريد الاكتروني",
+"username": "اسم الحساب",
+"password": "كلمه السر",
+"googleLogin": "Google Login"
+
+
     
     
 

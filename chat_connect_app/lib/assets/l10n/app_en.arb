@@ -2,7 +2,11 @@
 
 "login" : "Login",
 "register" : "Register",
-"talal": "talal"
+"talal": "talal",
+"email": "email",
+"username": "username",
+"password": "password",
+"googleLogin": "Google Login"
 
 
 }

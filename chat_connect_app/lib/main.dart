@@ -23,10 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //rootNavigatorKey.currentState!.context.pushNamed("name");
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale('en'),
+      locale: const Locale('ar'),
       
       routerConfig: AppRouter.router,
     );
