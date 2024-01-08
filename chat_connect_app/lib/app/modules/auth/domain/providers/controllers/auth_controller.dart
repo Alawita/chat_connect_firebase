@@ -39,6 +39,35 @@ class AuthController extends StateNotifier<AuthState> {
     return false;
   }
 
+  Future<bool> login({
+    required String email,
+    required String userName,
+    required String password,
+  }) async {
+    state = state.copyWith(isLoading: true);
+    try {
+      // Get back usercredential future from createUserWithEmailAndPassword method
+      User? userCred = await _authRepository.signInWithEmailAndPassword(
+          email: email.toString(), password: password.toString());
+      if (userCred != null) {
+        // Save username name
+        await userCred.updateDisplayName(userName.toString());
+
+        // After that access "users" Firestore in firestore and save username, email and userLocation
+        await _authRepository.saveUserInfoToFirebase(
+            userCred.uid, userName.toString(), email.toString());
+        state = state.copyWith(isLoading: false, isAuth: true);
+        return true;
+      }
+    } on AuthException catch (e) {
+      state =
+          state.copyWith(isLoading: false, isAuth: false, error: e.toString());
+      debugPrint(e.toString());
+      return false;
+    }
+    return false;
+  }
+
   Future<bool> signInWithGoogle() async {
     state = state.copyWith(isLoading: true);
     try {

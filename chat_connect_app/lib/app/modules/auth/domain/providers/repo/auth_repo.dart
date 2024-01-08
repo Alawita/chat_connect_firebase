@@ -31,6 +31,25 @@ class AuthRepository {
     }
   }
 
+  Future<User?> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return userCredential.user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw AuthException('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        throw AuthException('Wrong password provided for that user.');
+      } else {
+        throw AuthException(e.message!);
+      }
+    }
+  }
+
   Future<User?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();

@@ -13,6 +13,7 @@ final rootNavigatorKey = GlobalKey<NavigatorState>();
 abstract class AppRouter {
   static Widget errorWidget(BuildContext context, GoRouterState state) =>
       const SizedBox();
+      
 
   /// use this in [MaterialApp.router]
   static final _router = GoRouter(
