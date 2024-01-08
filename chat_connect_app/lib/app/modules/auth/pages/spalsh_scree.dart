@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
     return  Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextButton(onPressed: (){context.showSnackbar("Helllllo");}, child: Text("Hello")),
+          TextButton(onPressed: (){context.showSnackbar("Hello");}, child: Text("Hello")),
           Center(child: Text(context.translate.talal)),
         ],
       ),
