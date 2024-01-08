@@ -1,16 +1,21 @@
 import 'package:chat_connect_app/app/config/theme/my_colors.dart';
 import 'package:chat_connect_app/app/core/extentions/build_conext_extinsion.dart';
+import 'package:chat_connect_app/app/modules/auth/domain/providers/auth_provider.dart';
 import 'package:chat_connect_app/app/modules/auth/widgets/my_auth_form.dart';
 import 'package:chat_connect_app/shared/myapp_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends ConsumerWidget {
   RegisterScreen({super.key});
 
   final formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authProvider = ref.read(authControllerProvider.notifier);
+    final fieldValues = ref.watch(authFormController);
+    
     return Scaffold(
       appBar: MyAppbar(
         appBarTitle: Text(
@@ -28,14 +33,18 @@ class RegisterScreen extends StatelessWidget {
             height: 12,
           ),
 					ElevatedButton(
-onPressed: (){},
+onPressed: (){
+  authProvider.register(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
+},
 				child: Text(context.translate.register)						
 ),
  const SizedBox(
             height: 12,
           ),
 TextButton(
-onPressed: () {},
+onPressed: () {
+  authProvider.signInWithGoogle();
+},
 child: Text(context.translate.googleLogin)
 ),
 				],

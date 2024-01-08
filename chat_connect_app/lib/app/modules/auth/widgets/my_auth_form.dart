@@ -118,6 +118,7 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
                       : Icons.remove_red_eye_rounded,
                 ),
               ),
+              
             ],
           ),
         ),
