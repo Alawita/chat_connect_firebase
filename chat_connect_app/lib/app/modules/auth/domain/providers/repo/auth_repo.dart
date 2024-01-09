@@ -18,6 +18,7 @@ class AuthRepository {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
+      
       );
       return userCredential.user;
     } on FirebaseAuthException catch (e) {

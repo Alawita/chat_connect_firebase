@@ -36,8 +36,10 @@ class LoginScreen extends ConsumerWidget {
           ),
 					ElevatedButton(
 onPressed: (){
+  if (formKey.currentState?.validate() == true) {
   authProvider.login(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
   context.pushNamed(MyNamedRoutes.home);
+  }
 },
 				child: Text(context.translate.login)						
 ),Row(mainAxisAlignment: MainAxisAlignment.center,
@@ -51,6 +53,8 @@ onPressed: (){
 TextButton(
 onPressed: () {
   authProvider.signInWithGoogle();
+  context.pushNamed(MyNamedRoutes.home);
+
 },
 child: Text(context.translate.googleLogin)
 ),

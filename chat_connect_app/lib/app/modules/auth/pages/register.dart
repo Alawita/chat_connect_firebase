@@ -36,7 +36,10 @@ class RegisterScreen extends ConsumerWidget {
           ),
 					ElevatedButton(
 onPressed: (){
-  authProvider.register(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
+  if (formKey.currentState?.validate() == true) {
+      authProvider.register(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
+      context.pushNamed(MyNamedRoutes.login);
+  }
 },
 				child: Text(context.translate.register)						
 ),Row(mainAxisAlignment: MainAxisAlignment.center,
