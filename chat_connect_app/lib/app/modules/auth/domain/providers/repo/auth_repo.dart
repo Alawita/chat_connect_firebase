@@ -77,10 +77,11 @@ class AuthRepository {
   }
 
   Future<void> saveUserInfoToFirebase(
-      String userId, String userName, String email) async {
+      String userId, String userName, String email,) async {
     try {
       await FirebaseFirestore.instance.collection('users').doc(userId).set(
         {
+          "userID" : userId,
           'username': userName,
           'email': email,
           'userLocation': null,

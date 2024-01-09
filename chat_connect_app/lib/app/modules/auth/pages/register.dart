@@ -41,7 +41,7 @@ onPressed: (){
 				child: Text(context.translate.register)						
 ),Row(mainAxisAlignment: MainAxisAlignment.center,
   children: [
-    Text("Already rehistered?"), TextButton(onPressed: (){context.pushNamed(MyNamedRoutes.login);}, child: Text("Sign in here!", style: TextStyle(color: Colors.lightBlue),))
+    const Text("Already rehistered?"), TextButton(onPressed: (){context.pushNamed(MyNamedRoutes.login);}, child: const Text("Sign in here!", style: TextStyle(color: Colors.lightBlue),))
   ],
 ),
 

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class MyAppbar extends ConsumerWidget implements PreferredSizeWidget {
-   MyAppbar(
+   const MyAppbar(
       {super.key, required this.appBarTitle, this.showLeading = false,});
 
   final Text appBarTitle;
@@ -18,7 +18,7 @@ class MyAppbar extends ConsumerWidget implements PreferredSizeWidget {
     return AppBar( 
       actions: [TextButton(onPressed: (){authProvider.signOut();
       context.goNamed(MyNamedRoutes.login);
-      }, child:Text("signOut") )],
+      }, child:const Text("signOut") )],
       automaticallyImplyLeading: showLeading,
       title: appBarTitle,
     );

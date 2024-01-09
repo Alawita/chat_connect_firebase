@@ -2,7 +2,6 @@ import 'package:chat_connect_app/app/config/routes/my_named_routes.dart';
 import 'package:chat_connect_app/app/config/theme/my_colors.dart';
 import 'package:chat_connect_app/app/core/extentions/build_conext_extinsion.dart';
 import 'package:chat_connect_app/app/modules/auth/domain/providers/auth_provider.dart';
-import 'package:chat_connect_app/app/modules/auth/widgets/my_auth_form.dart';
 import 'package:chat_connect_app/app/modules/auth/widgets/my_sign_in.dart';
 import 'package:chat_connect_app/shared/myapp_bar.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +42,7 @@ onPressed: (){
 				child: Text(context.translate.login)						
 ),Row(mainAxisAlignment: MainAxisAlignment.center,
   children: [
-    Text("you dont have an account?"), TextButton(onPressed: (){context.goNamed(MyNamedRoutes.register);}, child: Text(context.translate.register,style: TextStyle(color: Colors.lightBlue),))
+    const Text("you dont have an account?"), TextButton(onPressed: (){context.goNamed(MyNamedRoutes.register);}, child: Text(context.translate.register,style: const TextStyle(color: Colors.lightBlue),))
   ],
 ),
  const SizedBox(

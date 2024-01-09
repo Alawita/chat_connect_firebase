@@ -2,9 +2,7 @@ import 'package:chat_connect_app/app/modules/auth/domain/providers/controllers/a
 import 'package:chat_connect_app/app/modules/auth/domain/providers/controllers/form_controller.dart';
 import 'package:chat_connect_app/app/modules/auth/domain/providers/repo/auth_repo.dart';
 import 'package:chat_connect_app/app/modules/auth/domain/providers/state/auth_state.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 

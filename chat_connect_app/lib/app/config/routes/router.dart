@@ -3,7 +3,6 @@ import 'package:chat_connect_app/app/modules/auth/pages/login_page.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/register.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/spalsh_scree.dart';
 import 'package:chat_connect_app/app/modules/home/pages/home_page.dart';
-import 'package:chat_connect_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,7 +26,7 @@ abstract class AppRouter {
         path: MyNamedRoutes.root,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child:  SplashScreen(),
+          child:  const SplashScreen(),
         ),
       ),
       GoRoute(
@@ -53,7 +52,7 @@ abstract class AppRouter {
         name: MyNamedRoutes.home,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child:  MyHomeScreen(),
+          child:  const MyHomeScreen(),
         ),
       ),
       
