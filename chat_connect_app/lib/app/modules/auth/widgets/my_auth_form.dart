@@ -72,6 +72,10 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
       return 'Weak 😟';
     } else if (hasLowerCase && hasUpperCase && !hasSpecialChar) {
       return 'Normal 😐';
+      
+    } else if (hasLowerCase && !hasUpperCase && hasSpecialChar) {
+      return 'Normal 😐';
+      
     } else if (hasLowerCase && hasUpperCase && hasSpecialChar) {
       return 'Strong 💪';
     } else {
