@@ -15,6 +15,10 @@ class MyAuthForm extends ConsumerStatefulWidget {
 
   final GlobalKey<FormState>? registerFormKey;
 
+
+
+
+
   @override
   ConsumerState createState() => _MyAuthFormState();
 }
@@ -42,6 +46,38 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
 
     userNameController.dispose();
     userNameFocus.dispose();
+  }
+
+   String getPasswordStrengthIndicator(String password) {
+    bool hasLowerCase = false;
+    bool hasUpperCase = false;
+    bool hasSpecialChar = false;
+
+    for (var char in password.runes) {
+      var character = String.fromCharCode(char);
+      if (character == character.toLowerCase() &&
+          character != character.toUpperCase()) {
+        hasLowerCase = true;
+      } else if (character == character.toUpperCase() &&
+          character != character.toLowerCase()) {
+        hasUpperCase = true;
+      } else if ('!@#\$%^&*()-_+=<>?/\\[]{}|'.contains(character)) {
+        hasSpecialChar = true;
+      }
+    }
+
+    if (password.length == 0) {
+      return '';}
+    else if (hasLowerCase && !hasUpperCase && !hasSpecialChar) {
+      return 'Weak 😟';
+    } else if (hasLowerCase && hasUpperCase && !hasSpecialChar) {
+      return 'Normal 😐';
+    } else if (hasLowerCase && hasUpperCase && hasSpecialChar) {
+      return 'Strong 💪';
+    } else {
+      return 'Unknown';
+    }
+  
   }
 
   @override
@@ -116,6 +152,13 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
                   authFormContrller.togglePassword
                       ? Icons.remove_red_eye_outlined
                       : Icons.remove_red_eye_rounded,
+                ),
+              ),
+                Text(
+                getPasswordStrengthIndicator(passwordController.text),
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 12,
                 ),
               ),
               
