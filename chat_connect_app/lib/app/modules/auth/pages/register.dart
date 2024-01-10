@@ -53,7 +53,7 @@ onPressed: (){
           ),
 TextButton(
 onPressed: () {
-  authProvider.signInWithGoogle();
+  authProvider.signInWithGoogle().then((value) async{ if (value == true){await context.pushNamed(MyNamedRoutes.home);};});
 },
 child: Text(context.translate.googleLogin)
 ),

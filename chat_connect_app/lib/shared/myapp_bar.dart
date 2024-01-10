@@ -16,7 +16,10 @@ class MyAppbar extends ConsumerWidget implements PreferredSizeWidget {
     final authProvider = ref.read(authControllerProvider.notifier);
 
     return AppBar( 
-      actions: [TextButton(onPressed: (){authProvider.signOut();
+      actions: [TextButton(onPressed: (){authProvider.signOut().then((value){if (value == true){
+
+        context.goNamed(MyNamedRoutes.login);
+      }});
       context.goNamed(MyNamedRoutes.login);
       }, child:const Text("signOut") )],
       automaticallyImplyLeading: showLeading,

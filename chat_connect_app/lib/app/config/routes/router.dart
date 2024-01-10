@@ -52,7 +52,7 @@ abstract class AppRouter {
         name: MyNamedRoutes.home,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child:  const MyHomeScreen(),
+          child:   MyHomeScreen(),
         ),
       ),
       

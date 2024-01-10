@@ -17,6 +17,8 @@ class LoginScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authProvider = ref.read(authControllerProvider.notifier);
     final fieldValues = ref.watch(authFormController);
+    final checkIfAuth = ref.watch(checkIfAuthinticated);
+
     
     return Scaffold(
       appBar: MyAppbar(
@@ -36,9 +38,15 @@ class LoginScreen extends ConsumerWidget {
           ),
 					ElevatedButton(
 onPressed: (){
+  
+
+
   if (formKey.currentState?.validate() == true) {
-  authProvider.login(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
+  authProvider.login(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password).then((value){if (value==true){
+
   context.pushNamed(MyNamedRoutes.home);
+
+  }});
   }
 },
 				child: Text(context.translate.login)						
@@ -52,8 +60,8 @@ onPressed: (){
           ),
 TextButton(
 onPressed: () {
-  authProvider.signInWithGoogle();
-  context.pushNamed(MyNamedRoutes.home);
+  authProvider.signInWithGoogle().then((value) async{ if (value == true){await context.pushNamed(MyNamedRoutes.home);};});
+  
 
 },
 child: Text(context.translate.googleLogin)
