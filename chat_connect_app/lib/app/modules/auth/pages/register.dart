@@ -17,7 +17,7 @@ class RegisterScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authProvider = ref.read(authControllerProvider.notifier);
     final fieldValues = ref.watch(authFormController);
-    
+
     return Scaffold(
       appBar: MyAppbar(
         appBarTitle: Text(
@@ -34,30 +34,45 @@ class RegisterScreen extends ConsumerWidget {
           const SizedBox(
             height: 12,
           ),
-					ElevatedButton(
-onPressed: (){
-  if (formKey.currentState?.validate() == true) {
-      authProvider.register(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password);
-      context.pushNamed(MyNamedRoutes.login);
-  }
-},
-				child: Text(context.translate.register)						
-),Row(mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    const Text("Already rehistered?"), TextButton(onPressed: (){context.pushNamed(MyNamedRoutes.login);}, child: const Text("Sign in here!", style: TextStyle(color: Colors.lightBlue),))
-  ],
-),
-
- const SizedBox(
+          ElevatedButton(
+              onPressed: () {
+                if (formKey.currentState?.validate() == true) {
+                  authProvider.register(
+                      email: fieldValues.email,
+                      userName: fieldValues.userName,
+                      password: fieldValues.password);
+                  context.pushNamed(MyNamedRoutes.login);
+                }
+              },
+              child: Text(context.translate.register)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Already rehistered?"),
+              TextButton(
+                  onPressed: () {
+                    context.pushNamed(MyNamedRoutes.login);
+                  },
+                  child: const Text(
+                    "Sign in here!",
+                    style: TextStyle(color: Colors.lightBlue),
+                  ))
+            ],
+          ),
+          const SizedBox(
             height: 12,
           ),
-TextButton(
-onPressed: () {
-  authProvider.signInWithGoogle().then((value) async{ if (value == true){await context.pushNamed(MyNamedRoutes.home);};});
-},
-child: Text(context.translate.googleLogin)
-),
-				],
+          TextButton(
+              onPressed: () {
+                authProvider.signInWithGoogle().then((value) async {
+                  if (value == true) {
+                    await context.pushNamed(MyNamedRoutes.home);
+                  }
+                  ;
+                });
+              },
+              child: Text(context.translate.googleLogin)),
+        ],
       ),
     );
   }
