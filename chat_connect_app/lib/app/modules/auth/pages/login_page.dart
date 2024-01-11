@@ -1,4 +1,5 @@
 import 'package:chat_connect_app/app/config/routes/my_named_routes.dart';
+import 'package:chat_connect_app/app/config/routes/router.dart';
 import 'package:chat_connect_app/app/config/theme/my_colors.dart';
 import 'package:chat_connect_app/app/core/extentions/build_conext_extinsion.dart';
 import 'package:chat_connect_app/app/modules/auth/domain/providers/auth_provider.dart';
@@ -45,7 +46,7 @@ class LoginScreen extends ConsumerWidget {
                           password: fieldValues.password)
                       .then((value) {
                     if (value == true) {
-                      context.pushNamed(MyNamedRoutes.home);
+                      context.goNamed(MyNamedRoutes.home);
                     }
                   });
                 }
@@ -72,7 +73,7 @@ class LoginScreen extends ConsumerWidget {
               onPressed: () {
                 authProvider.signInWithGoogle().then((value) async {
                   if (value == true) {
-                    await context.pushNamed(MyNamedRoutes.home);
+                    context.goNamed(MyNamedRoutes.home);
                   }
                   ;
                 });
