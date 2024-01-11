@@ -1,5 +1,5 @@
 extension DateTimeExtension on DateTime {
   String toShortDateString() {
-    return '${month}/${day}/${year}';
+    return '$month/$day/$year';
   }
 }

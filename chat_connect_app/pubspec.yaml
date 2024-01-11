@@ -47,7 +47,6 @@ dependencies:
   image_picker: ^1.0.4 # access gallery and take images from camera
   intl: ^0.18.1  # transalation
 
-
   
 
 dev_dependencies:
