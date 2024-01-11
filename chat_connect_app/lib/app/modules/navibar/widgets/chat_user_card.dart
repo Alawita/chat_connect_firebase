@@ -16,8 +16,8 @@ class ChatUserCard extends StatelessWidget {
             // Assuming your User class has a property 'profileImageUrl'
 
             ),
-        title: Text(user.email.toString()),
-        subtitle: Text(user.userID.toString()),
+        title: Text(user.username.toString()),
+        subtitle: Text(user.email.toString()),
         // You can customize the ListTile as needed based on your User class properties
         // Add more details or actions as required
         onTap: () {
