@@ -19,7 +19,6 @@ class LoginScreen extends ConsumerWidget {
     final fieldValues = ref.watch(authFormController);
     final checkIfAuth = ref.watch(checkIfAuthinticated);
 
-    
     return Scaffold(
       appBar: MyAppbar(
         appBarTitle: Text(
@@ -36,37 +35,50 @@ class LoginScreen extends ConsumerWidget {
           const SizedBox(
             height: 12,
           ),
-					ElevatedButton(
-onPressed: (){
-  
-
-
-  if (formKey.currentState?.validate() == true) {
-  authProvider.login(email: fieldValues.email, userName: fieldValues.userName, password: fieldValues.password).then((value){if (value==true){
-
-  context.pushNamed(MyNamedRoutes.home);
-
-  }});
-  }
-},
-				child: Text(context.translate.login)						
-),Row(mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    const Text("you dont have an account?"), TextButton(onPressed: (){context.goNamed(MyNamedRoutes.register);}, child: Text(context.translate.register,style: const TextStyle(color: Colors.lightBlue),))
-  ],
-),
- const SizedBox(
+          ElevatedButton(
+              onPressed: () {
+                if (formKey.currentState?.validate() == true) {
+                  authProvider
+                      .login(
+                          email: fieldValues.email,
+                          userName: fieldValues.userName,
+                          password: fieldValues.password)
+                      .then((value) {
+                    if (value == true) {
+                      context.pushNamed(MyNamedRoutes.home);
+                    }
+                  });
+                }
+              },
+              child: Text(context.translate.login)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("you dont have an account?"),
+              TextButton(
+                  onPressed: () {
+                    context.goNamed(MyNamedRoutes.register);
+                  },
+                  child: Text(
+                    context.translate.register,
+                    style: const TextStyle(color: Colors.lightBlue),
+                  ))
+            ],
+          ),
+          const SizedBox(
             height: 12,
           ),
-TextButton(
-onPressed: () {
-  authProvider.signInWithGoogle().then((value) async{ if (value == true){await context.pushNamed(MyNamedRoutes.home);};});
-  
-
-},
-child: Text(context.translate.googleLogin)
-),
-				],
+          TextButton(
+              onPressed: () {
+                authProvider.signInWithGoogle().then((value) async {
+                  if (value == true) {
+                    await context.pushNamed(MyNamedRoutes.home);
+                  }
+                  ;
+                });
+              },
+              child: Text(context.translate.googleLogin)),
+        ],
       ),
     );
   }
