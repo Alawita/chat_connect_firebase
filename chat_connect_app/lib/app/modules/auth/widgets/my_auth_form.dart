@@ -15,10 +15,6 @@ class MyAuthForm extends ConsumerStatefulWidget {
 
   final GlobalKey<FormState>? registerFormKey;
 
-
-
-
-
   @override
   ConsumerState createState() => _MyAuthFormState();
 }
@@ -48,7 +44,7 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
     userNameFocus.dispose();
   }
 
-   String getPasswordStrengthIndicator(String password) {
+  String getPasswordStrengthIndicator(String password) {
     bool hasLowerCase = false;
     bool hasUpperCase = false;
     bool hasSpecialChar = false;
@@ -67,21 +63,20 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
     }
 
     if (password.length == 0) {
-      return '';}
-    else if (hasLowerCase && !hasUpperCase && !hasSpecialChar) {
+      return '';
+    } else if (hasLowerCase && !hasUpperCase && !hasSpecialChar) {
+      return 'Weak 😟';
+    } else if (!hasLowerCase && !hasUpperCase && !hasSpecialChar) {
       return 'Weak 😟';
     } else if (hasLowerCase && hasUpperCase && !hasSpecialChar) {
       return 'Normal 😐';
-      
     } else if (hasLowerCase && !hasUpperCase && hasSpecialChar) {
       return 'Normal 😐';
-      
     } else if (hasLowerCase && hasUpperCase && hasSpecialChar) {
       return 'Strong 💪';
     } else {
       return 'Unknown';
     }
-  
   }
 
   @override
@@ -95,7 +90,7 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-             	           MyTextFormWidget(
+              MyTextFormWidget(
                 controller: emailController,
                 obscureText: false,
                 focusNode: emailFocusNode,
@@ -115,7 +110,7 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
               const SizedBox(
                 height: 12,
               ),
-                           MyTextFormWidget(
+              MyTextFormWidget(
                 controller: userNameController,
                 obscureText: false,
                 focusNode: userNameFocus,
@@ -131,14 +126,13 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
                 },
               ),
               const SizedBox(
-                    height: 12,
+                height: 12,
               ),
-             
-                           MyTextFormWidget(
+              MyTextFormWidget(
                 controller: passwordController,
-								obscureText:
-                    authFormContrller.togglePassword == false ? true : false,                
-								focusNode: passwordFocusNode,
+                obscureText:
+                    authFormContrller.togglePassword == false ? true : false,
+                focusNode: passwordFocusNode,
                 validator: (input) => authValidators.passwordVlidator(input),
                 prefIcon: const Icon(Icons.password),
                 labelText: context.translate.password,
@@ -158,14 +152,13 @@ class _MyAuthFormState extends ConsumerState<MyAuthForm> {
                       : Icons.remove_red_eye_rounded,
                 ),
               ),
-                Text(
+              Text(
                 getPasswordStrengthIndicator(passwordController.text),
                 style: TextStyle(
                   color: Colors.black54,
                   fontSize: 12,
                 ),
               ),
-              
             ],
           ),
         ),
