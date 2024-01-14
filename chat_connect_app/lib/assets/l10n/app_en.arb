@@ -1,12 +1,13 @@
 {
-
-"login" : "Login",
-"register" : "Register",
-"talal": "talal",
-"email": "email",
-"username": "username",
-"password": "password",
-"googleLogin": "Google Login",
-"chat": "chat"
-
+  "login": "Login",
+  "register": "Register",
+  "talal": "talal",
+  "email": "email",
+  "username": "username",
+  "password": "password",
+  "googleLogin": "Google Login",
+  "chat": "chat",
+  "home": "Home",
+  "location": "Location",
+  "profile": "Profile"
 }
