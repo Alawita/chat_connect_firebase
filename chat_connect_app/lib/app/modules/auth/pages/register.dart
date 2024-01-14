@@ -66,7 +66,7 @@ class RegisterScreen extends ConsumerWidget {
               onPressed: () {
                 authProvider.signInWithGoogle().then((value) async {
                   if (value == true) {
-                    await context.pushNamed(MyNamedRoutes.home);
+                    context.goNamed(MyNamedRoutes.home);
                   }
                   ;
                 });
