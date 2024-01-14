@@ -12,7 +12,7 @@ class OneToOneMessagingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: MyColors.pastelBlue,
+        backgroundColor: MyColors.pastelBlack,
         title: Text(userModel.username.toString()),
       ),
       body: MessagingBodyView(selectedUser: userModel),
