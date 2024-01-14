@@ -46,6 +46,7 @@ dependencies:
   google_fonts: ^6.1.0 # access fonts from fonts.google.com
   image_picker: ^1.0.4 # access gallery and take images from camera
   intl: ^0.18.1  # transalation
+  uuid: ^4.3.3
 
   
 

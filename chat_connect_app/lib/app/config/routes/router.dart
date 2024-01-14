@@ -3,10 +3,12 @@ import 'package:chat_connect_app/app/modules/auth/pages/login_page.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/register.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/spalsh_scree.dart';
 import 'package:chat_connect_app/app/modules/home/pages/home_page.dart';
+import 'package:chat_connect_app/app/modules/navibar/domain/models/user_mode.dart';
 import 'package:chat_connect_app/app/modules/navibar/pages/location_screen.dart';
 import 'package:chat_connect_app/app/modules/navibar/pages/navbar_screen.dart';
 import 'package:chat_connect_app/app/modules/navibar/pages/profile_screen.dart';
 import 'package:chat_connect_app/app/modules/navibar/widgets/bottom_navbar_tabs.dart';
+import 'package:chat_connect_app/app/modules/one_to_one_chat/pages/chat_room_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,6 +53,15 @@ abstract class AppRouter {
           child: RegisterScreen(),
         ),
       ),
+      GoRoute(
+        parentNavigatorKey: rootNavigatorKey,
+        path: "/${MyNamedRoutes.chatroom}",
+        name: MyNamedRoutes.chatroom,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: OneToOneMessagingScreen(userModel: state.extra as UserModel),
+        ),
+      ),
 
       // GoRoute(
       //     path: "/${MyNamedRoutes.navi}",
@@ -73,13 +84,13 @@ abstract class AppRouter {
         routes: [
           // Existing route for home screen
           GoRoute(
-            path: "/${MyNamedRoutes.home}",
-            name: MyNamedRoutes.home,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: MyHomeScreen(),
-            ),
-          ),
+              path: "/${MyNamedRoutes.home}",
+              name: MyNamedRoutes.home,
+              pageBuilder: (context, state) => NoTransitionPage(
+                    key: state.pageKey,
+                    child: MyHomeScreen(),
+                  ),
+              routes: []),
           // Add new routes for Profile and Locations screens
           GoRoute(
             path: "/${MyNamedRoutes.profile}",
