@@ -2,7 +2,6 @@ import 'package:chat_connect_app/app/config/theme/my_colors.dart';
 import 'package:chat_connect_app/app/core/extentions/build_conext_extinsion.dart';
 import 'package:chat_connect_app/app/modules/one_to_one_chat/domain/helper/date_and_time.dart';
 import 'package:chat_connect_app/app/modules/one_to_one_chat/domain/models/message_details_model.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
