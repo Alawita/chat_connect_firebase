@@ -9,5 +9,8 @@
   "chat": "chat",
   "home": "Home",
   "location": "Location",
-  "profile": "Profile"
+  "profile": "Profile",
+  "photoGallery": "Photo Gallery",
+  "cameraImage": "Camera Image",
+  "cancel": "Cancel"
 }

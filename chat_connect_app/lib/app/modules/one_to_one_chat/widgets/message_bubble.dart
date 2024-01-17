@@ -47,14 +47,20 @@ class MessageBubble extends StatelessWidget with CustomDateTimeFormatter {
                           : const Radius.circular(15),
                     ),
                   ),
-                  child: Text(
-                    message.message,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                        color: message.senderId ==
-                                FirebaseAuth.instance.currentUser!.uid
-                            ? Colors.black
-                            : Colors.black87),
-                  ),
+                  child: message.message.startsWith("https")
+                      ? Image.network(
+                          message.message,
+                          height: context.screenHeight * 0.25,
+                          width: context.screenWidth * 0.3,
+                        )
+                      : Text(
+                          message.message,
+                          style: context.textTheme.bodyMedium?.copyWith(
+                              color: message.senderId ==
+                                      FirebaseAuth.instance.currentUser!.uid
+                                  ? Colors.black
+                                  : Colors.black87),
+                        ),
                 ),
               ),
             ],

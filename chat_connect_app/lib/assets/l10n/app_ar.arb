@@ -9,5 +9,8 @@
   "chat": "المحادثات",
   "home": "الرئيسية",
   "location": "الموقع",
-  "profile": "الملف الشخصي"
+  "profile": "الملف الشخصي",
+  "photoGallery": "معرض الصور",
+  "cameraImage": "صورة الكاميرا",
+  "cancel": "إلغاء"
 }
