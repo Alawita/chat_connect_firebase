@@ -71,6 +71,7 @@ class ChateMessageStateNotifier extends StateNotifier<ChateMessageState> {
           ),
         );
       }
+      state = state.copyWith(isLoading: false);
     } catch (e) {
       state =
           state.copyWith(message: "", isLoading: false, error: e.toString());
@@ -98,6 +99,7 @@ class ChateMessageStateNotifier extends StateNotifier<ChateMessageState> {
           ),
         );
       }
+      state = state.copyWith(isLoading: false);
     } catch (e) {
       state = state.copyWith(
         isLoading: false,
