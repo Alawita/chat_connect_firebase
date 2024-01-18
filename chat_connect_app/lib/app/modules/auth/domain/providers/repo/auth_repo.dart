@@ -18,7 +18,6 @@ class AuthRepository {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
-      
       );
       return userCredential.user;
     } on FirebaseAuthException catch (e) {
@@ -78,11 +77,14 @@ class AuthRepository {
   }
 
   Future<void> saveUserInfoToFirebase(
-      String userId, String userName, String email,) async {
+    String userId,
+    String userName,
+    String email,
+  ) async {
     try {
       await FirebaseFirestore.instance.collection('users').doc(userId).set(
         {
-          "userID" : userId,
+          "userID": userId,
           'username': userName,
           'email': email,
           'userLocation': null,
@@ -98,6 +100,20 @@ class AuthRepository {
       await _firebaseAuth.signOut();
     } catch (e) {
       debugPrint(e.toString());
+      throw AuthException(e.toString());
+    }
+  }
+
+  Future<void> updateUserInfoToFirebase(
+      Map<Object, Object?> updatedData) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(updatedData['userId'].toString())
+          .update(
+            updatedData,
+          );
+    } catch (e) {
       throw AuthException(e.toString());
     }
   }

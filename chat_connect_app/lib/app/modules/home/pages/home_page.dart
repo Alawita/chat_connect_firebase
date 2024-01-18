@@ -1,17 +1,32 @@
 import 'package:chat_connect_app/app/core/extentions/build_conext_extinsion.dart';
+import 'package:chat_connect_app/app/core/services/notifications_service.dart';
 import 'package:chat_connect_app/app/modules/navibar/domain/models/user_mode.dart';
 import 'package:chat_connect_app/app/modules/navibar/domain/provider/chat_provider.dart';
 import 'package:chat_connect_app/app/modules/navibar/widgets/chat_user_card.dart';
 import 'package:chat_connect_app/shared/myapp_bar.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MyHomeScreen extends ConsumerWidget {
+class MyHomeScreen extends ConsumerStatefulWidget {
   const MyHomeScreen({super.key});
+  @override
+  _MyHomeScreen createState() => _MyHomeScreen();
+}
+
+class _MyHomeScreen extends ConsumerState<MyHomeScreen> {
+  final notificationService = NotificationSetup();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  void initState() {
+    super.initState();
+    notificationService.registerNotification();
+    notificationService.configLocalNotification();
+  }
+
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
     final chatUsers = ref.watch(usersProvider);
     return Scaffold(
       appBar: MyAppbar(appBarTitle: Text(context.translate.chat)),
