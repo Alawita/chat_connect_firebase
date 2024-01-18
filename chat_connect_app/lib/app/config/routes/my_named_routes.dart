@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 abstract class MyNamedRoutes {
   static const root = '/';
   static const login = 'login';
@@ -9,6 +11,7 @@ abstract class MyNamedRoutes {
   static const editProfile = 'editProfile';
   static const locations = 'locations';
   static const navi = 'navi';
+  static const chatroom = 'chatroom';
 
   // New route for Locations screen
 }

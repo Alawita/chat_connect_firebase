@@ -1,5 +1,7 @@
+import 'package:chat_connect_app/app/config/routes/my_named_routes.dart';
 import 'package:chat_connect_app/app/modules/navibar/domain/models/user_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatUserCard extends StatelessWidget {
   final UserModel user; // Assuming 'User' is your user model class
@@ -21,6 +23,7 @@ class ChatUserCard extends StatelessWidget {
         // You can customize the ListTile as needed based on your User class properties
         // Add more details or actions as required
         onTap: () {
+          context.pushNamed(MyNamedRoutes.chatroom, extra: user);
           // Handle onTap as needed
         },
       ),
