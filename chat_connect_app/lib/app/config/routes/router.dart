@@ -3,6 +3,7 @@ import 'package:chat_connect_app/app/modules/auth/pages/login_page.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/register.dart';
 import 'package:chat_connect_app/app/modules/auth/pages/spalsh_scree.dart';
 import 'package:chat_connect_app/app/modules/home/pages/home_page.dart';
+import 'package:chat_connect_app/app/modules/locations/pages/location_screen.dart';
 import 'package:chat_connect_app/app/modules/navibar/domain/models/user_mode.dart';
 import 'package:chat_connect_app/app/modules/navibar/pages/location_screen.dart';
 import 'package:chat_connect_app/app/modules/navibar/pages/navbar_screen.dart';
@@ -106,7 +107,7 @@ abstract class AppRouter {
             pageBuilder: (context, state) => NoTransitionPage(
               key: state.pageKey,
               child:
-                  const LocationsScreen(), // Replace with your Locations screen
+                   LocationScreen(), // Replace with your Locations screen
             ),
           ),
         ],

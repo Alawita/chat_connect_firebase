@@ -7,6 +7,7 @@ class Message {
   final String senderId;
   final String message;
   final DateTime timeStamp;
+
   Message({
     required this.messageId,
     required this.recieverId,

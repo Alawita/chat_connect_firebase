@@ -63,5 +63,8 @@
 	<string>send videos from camera in one to one chat</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access to photo library</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location for map features.</string>
+
 </dict>
 </plist>
